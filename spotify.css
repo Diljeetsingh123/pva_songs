@@ -1,0 +1,482 @@
+*{
+    padding: 0;margin: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 100%;
+    height: 100vh;
+    background-color: #121213;
+    display: grid;
+    place-items: center;
+overflow: hidden;
+}
+header{
+    width: 85%;
+    height: 95%;
+    /*border: 1px solid red;*/
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+header .left,.right{width: 25%;
+    height: 90%;
+  /*  border: 1px  solid white;*/
+    background-color: #111727;
+    box-shadow: 5px 0px 2px #090f1f;
+}
+.right{width: 75%;
+background: #0b1320;}
+.bottom{height: 10%;width: 100%;
+ /*border:  1px solid white;*/
+background: #111727;}
+header .left h1{font-size: 20px;color: white;margin: 15px 0px 0px 20px;
+font-weight: 500;}
+.playlist{
+    margin: 40px 0px 0px 20px;
+}
+.playlist h4{font-size: 14px;
+font-weight: 500;
+ padding-bottom: 10px;color: #4c5262;
+cursor: pointer;
+display: flex; align-items: center;
+transition: .3s linear;}
+.playlist h4:hover{
+    color: white;
+}
+header .left .playlist h4 span{
+    position: relative;
+    margin-right: 35px;
+
+}
+header .left .playlist h4 span::before{
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border: 2px solid red;
+    border-radius: 5px;    
+    top: -4px;
+    transition: .3s linear;
+}
+header .left .playlist h4:hover span::before{
+    border: 2px solid white}
+header .left .playlist .active{
+    color: #36e2ec;
+}
+.menu{
+    width: 100%;
+    height: 300px;
+    margin-top: 40px;
+
+}
+.menu li{
+    list-style: none;
+    position: relative;
+    padding: 5px 0px 5px 20px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: .3s linear;
+
+}
+.menu li:hover{  background: rgb(105,105,105);}
+.menu li span{
+    font-size: 12px;
+    font-weight: 600;
+    color: #4c5262;
+}
+.menu li img{
+    width: 40px;
+    margin-left: 25px;
+}
+.menu li h5{
+    font-size: 11px;
+    margin-left: 15px;
+    width: 140px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: white;
+}
+.subtitle{
+    font-size: 9px;
+    color: #4c5262;
+}
+.songitem i{
+    color: white;
+    font-size: 18px;
+    margin-right: 15px;
+}
+.songitem .jatt:hover{
+    color:red;
+}
+.bottom{
+    display: flex;
+    align-items: center;
+    padding: 0px 20px;
+}
+.wave{
+    width: 30px;
+    height: 30px;
+    padding-bottom: 5px;
+    display: flex;
+    align-items: flex-end;
+    margin-right: 10px;
+}
+.wave1{
+    width: 3px;
+    height: 10px;
+    background: #36e2ec;
+    margin-right: 3px;
+     border-radius: 10px 10px 0px 0px;
+     animation: wave .5s linear infinite;
+}
+.wave1:nth-child(2){
+    height: 13px;
+    animation-delay: .4s;
+}
+.wave1:nth-child(3){
+    height: 8px;
+    animation-delay: 8s;
+} 
+@keyframes wave{
+    0%{height: 10px;}
+    50%{height: 15px;} 
+    100%{height: 10px;}
+}
+/*javascript classes/*/
+header .bottom .active1 .wave1{
+    animation-delay: .5s linear infinite;
+}
+header .bottom .active1 .wave1:nth-child(2){
+   animation-delay: .4s;
+}
+header .bottom .active1 .wave1:nth-child(3){
+   
+    animation-delay: .8s;
+}
+.bottom img{
+    width: 35px;
+    height: 35px;
+}
+.bottom h5{
+    width: 130px;
+    ;margin-left: 15px;
+    color: white;
+    overflow: hidden;
+    font-size: 13px;
+}
+.icon{
+    font-size: 20px;
+    color: white;
+    margin: 0px 20px 0px 40px;
+    align-items: center;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+
+#download_music{
+    font-size: 20px;
+    margin-left: 10px;}
+#download_music1{
+    font-size:17px ;
+    margin-right: 10px;
+    
+}
+.icon .fa-solid:nth-child(3){
+    padding: 1px 5px 0px 7px;
+    margin: 0px 5px ;
+}
+.bottom span{
+    color: white;
+    width: 32px;
+    font-size: 11px;
+    font-weight: 400;
+    margin: 0px 0px 0px 20px;
+}
+.bar{position: relative;
+width: 43%;
+height: 2px;
+background: rgb(105,105,105,.1);
+margin: 0px 15px 0px 10px;}
+.bar2{
+    position: absolute;
+    background: #36e2ec;
+    width: 0;
+    height: 100%;
+    top: 0%;
+    transition: 1s linear;
+
+}
+.dot{
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: #36e2ec;
+    border-radius:50%;
+    left: 0%;
+    top: -1.5px;
+    transition: 1s linear;
+}
+.bar input{
+    position: absolute;
+    width: 100%;
+    top: -7px;
+    left: 0;
+    cursor: pointer;
+    z-index: 99999999999999999999999999;
+    opacity: 0;
+
+}
+.vol{
+    position: relative;
+    width: 100px;
+    height: 2px;
+    background: rgb(105,105,105,.1);
+    margin-left: 50px;
+}
+#vol_btn{
+    color: white;position: absolute;
+    top: -6px;
+    left: -30px;
+}
+.vol input{
+    position: absolute;
+    width: 100px;
+    top:-6px;
+    left: 0;
+    cursor: pointer;
+    opacity: 0;
+}
+.vol_bar{
+    position: absolute;
+    background: #36e2ec;
+    width: 50%;
+    height: 100%;
+    top: 0;
+    transition: 1s linear;
+
+}
+/*songs sides*/
+.right::before{
+    content: "";
+    position:absolute;
+    width: 100%;
+    height:300px;
+   
+    background-size: contain;
+    background-repeat: no-repeat;
+    float: right;
+    
+}
+.right nav{
+    width: 90%;
+    height: 10%;
+   
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;}
+.right nav ul{
+display: flex;}
+.right nav ul li{
+    list-style: none;
+    color: white;
+    font-size: 13px;
+    margin-right: 25px;
+    cursor: pointer;
+    transition: .3s linear;
+    color: #4c5262;
+}
+.right nav ul li:hover{
+    color:white;
+}
+.search{
+    position: relative;
+    width: 40%;
+    padding: 1px 10px;
+    border-radius: 20px;
+    color: gray;
+    
+}
+#bi{font-size: 13px;
+padding: 3px 0px 0px 10px;}
+.search input{
+    background: none;
+    border: none;
+    outline: none;
+    padding: 0px 10px;
+    color: white;
+    font-size: 12px;
+
+}
+.user{position: relative;
+width: 50px;
+height: 50px;
+border-radius: 50%;}
+.user img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    box-shadow: 2px 2px 8px black;
+}
+.content{width: 90%;
+height: 30%;
+
+margin: auto;
+padding-top: 20px;}
+.content h1{
+    color: white;
+    font-size: 25px;
+    font-weight: 600;
+}
+.content p{color: #4c5262;
+font-size: 11px;
+margin: 5px;}
+.buttonss{
+ margin-top: 15px;}
+
+ .buttonss button{
+    width: 130px;
+    height:  30px;
+    outline: none;
+    border-radius: 20px;
+    border: 2px solid aqua;
+    background: #5adae0;
+    cursor: pointer;
+    transition: .3s linear;
+    color: white;
+}
+ .content .buttonss button:hover{
+    background: none;
+    color: #36e2ec;
+}
+.content .buttonss button:nth-child(2){
+    background: none;
+    color: #36e2ec;
+}
+.content .buttonss button:nth-child(2):hover{
+    background-color: #36e2ec;
+    color: white;
+}
+.jattcls{
+    width: 100px;
+    position: relative;
+}
+.popular{
+    width: 90%;
+    height: auto;
+    margin: auto;
+    margin-top: 15px;
+   
+}
+.h4{display: flex;align-items: center;
+justify-content: space-between;}
+ .popular #arrow_right,#arrow_left{color: #a4a8b4;
+cursor: pointer;
+transition: .3s linear;
+cursor: pointer;
+}
+#laker1,#laker2{ color: #a4a8b4;
+cursor: pointer;}
+
+#arrow_left:hover{
+    color: white;
+}
+ .popularart #arrow_right:hover{
+    color: white;
+}
+.popsong{
+    width: 100%;
+    margin: auto;
+    height: 150px;
+    margin-top: 15px;
+    display: flex;
+    
+    align-items: center;
+    overflow: auto;
+    scroll-behavior: smooth;
+
+}
+.right .popular .popsong::-webkit-scrollbar{
+    display: none;
+}
+.popsong li{
+    min-width: 100px;
+height: 140px;
+list-style: none;
+margin-right: 10px;
+transition: 0.6s linear;
+
+}
+.popsong li:hover{
+    background-color: rgb(105,105,170,.1);
+
+}
+.popsong li .img_play{
+    position: relative;
+    width: 100px;
+height: 100px;
+align-items: center;
+text-align: center;}
+.popsong li .img_play img{
+    width: 100%;
+    height: 100%;
+}
+.popsong li .img_play i{
+    position: absolute;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+   margin-left: -60px;
+    margin-top: 40px;
+    opacity: 0;
+}
+.popsong h5{
+    text-align: center;
+    color: white;
+    font-size: 11px;
+}
+.popsong li .img_play i:hover{
+    opacity: 1;
+}
+.popularart{
+    margin-top: 15px;
+    margin: auto;
+    width: 100%
+}
+.popart{
+    display: flex;
+    text-align: center;
+    margin-top: 10px;
+    justify-content: space-between;
+    overflow: auto;
+    scroll-behavior: smooth;
+    
+}
+
+.popart li{list-style: none;}
+.people{
+    width: 100%;
+    height: 100%;
+   
+    padding: 10px;
+}
+.people img{
+    border-radius: 50%;
+    width: 90px;
+    height: 70px;
+}
+.people:hover{background-color: rgb(105,105,170,.1);}
+.popart::-webkit-scrollbar{
+    display: none;
+}
+.h4 h4{color: white;font-size: 20px;padding-left: 5px;}
+.people p {color: white; font-size: 11px}
+.subtitlebottom{
+    font-size: 9px;
+    color: #4c5262;}
